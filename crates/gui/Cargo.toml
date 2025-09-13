@@ -1,0 +1,39 @@
+[package]
+name = "nautilus-gui"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+description = "NautilusTrader GUI (Iced main UI with egui charts)"
+
+[dependencies]
+anyhow.workspace = true
+tracing.workspace = true
+tokio = { workspace = true, features = ["rt-multi-thread", "macros"] }
+
+# GUI
+iced = { version = "0.10", features = ["tokio", "canvas"] }
+egui = "0.29"
+eframe = { version = "0.29", default-features = true }
+pollster = "0.3"
+
+# Data and persistence (will use later)
+serde.workspace = true
+serde_json.workspace = true
+sqlx = { workspace = true, features = ["postgres", "runtime-tokio", "json", "macros", "uuid"] }
+uuid = { workspace = true, features = ["v4", "serde"] }
+time.workspace = true
+
+# Nautilus crates for later integration
+nautilus-data.workspace = true
+nautilus-persistence.workspace = true
+nautilus-common.workspace = true
+nautilus-core.workspace = true
+
+[lib]
+name = "nautilus_gui"
+path = "src/lib.rs"
+
+[[bin]]
+name = "nautilus-gui"
+path = "src/main.rs"
