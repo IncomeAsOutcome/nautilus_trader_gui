@@ -1,0 +1,60 @@
+[database]
+url = "postgresql://postgres:password@localhost:5432/nautilus_trader"
+max_connections = 5
+connection_timeout = 30
+
+[data]
+# Options: "mock", "alpha_vantage", "binance", "yahoo"
+provider = "mock"
+cache_size = 1000
+update_interval = 1000  # milliseconds
+
+# Alpha Vantage configuration (uncomment to use)
+# [data.alpha_vantage]
+# api_key = "YOUR_API_KEY_HERE"
+# rate_limit = 5  # requests per minute
+
+# Binance configuration (uncomment to use)
+# [data.binance]
+# api_key = "YOUR_API_KEY"
+# secret_key = "YOUR_SECRET_KEY"
+# testnet = true
+
+[ui]
+theme = "dark"  # Options: "dark", "light"
+auto_save = true
+default_timeframe = "1h"
+chart_history_bars = 500
+show_volume = true
+show_indicators = false
+
+[python]
+interpreter = "python3"
+venv_path = ".venv"
+strategy_dir = "strategies"
+
+[trading]
+default_order_type = "limit"
+default_time_in_force = "GTC"
+risk_per_trade = 0.01  # 1% risk per trade
+max_open_positions = 10
+enable_stop_loss = true
+enable_take_profit = true
+
+[backtesting]
+initial_capital = 100000.0
+commission = 0.001  # 0.1%
+slippage = 0.0005  # 0.05%
+enable_shorting = true
+
+[logging]
+level = "info"  # Options: "trace", "debug", "info", "warn", "error"
+file = "nautilus_gui.log"
+max_size = "10MB"
+max_files = 5
+
+[performance]
+enable_gpu = false
+cache_market_data = true
+parallel_backtests = 4
+websocket_buffer_size = 1000
