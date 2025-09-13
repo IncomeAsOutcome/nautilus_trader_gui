@@ -29,7 +29,7 @@ members = [
     "crates/serialization",
     "crates/system",
     "crates/testkit",
-    "crates/trading",
+    "crates/trading", "nautilus-gui", "nautilus-gui-demo",
 ]
 
 [workspace.package]
